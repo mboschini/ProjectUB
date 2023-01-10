@@ -36,13 +36,15 @@ public class FirstPersonCamera : MonoBehaviour
         }
         float inputX = Input.GetAxis("Mouse X") * mouseSensi;
         float inputY = Input.GetAxis("Mouse Y") * mouseSensi;
-        cameraVerticalRotation -= inputY;
-        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
-        transform.localEulerAngles = Vector3.right * cameraVerticalRotation;        
-        //Player.Rotate(Vector3.up * inputX);
+         cameraVerticalRotation -= inputY;
+         cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
+         transform.localEulerAngles = Vector3.right * cameraVerticalRotation;        
+
+        var pa = new PlayerActions() { ConnectionUUID = ClientWS._ConnectionID, Action = "MOUSE", MouseX = inputX, MouseY = inputY };
+
         if (inputX != 0 || inputY != 0)
         {
-            ClientWS._ws.Send(string.Format("{'ConnectionUUID': '" + ClientWS._ConnectionID + "' ,'ACTION': 'MOUSE','MouseX': {0}, 'MouseY': {1} }",inputX,inputY));
+            ClientWS._ws.Send(JsonConvert.SerializeObject(pa));
         }
     }
 

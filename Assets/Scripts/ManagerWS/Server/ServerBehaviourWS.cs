@@ -37,16 +37,7 @@ public class ServerBehaviourWS : WebSocketBehavior
             if (e.Data.ToUpperInvariant().Contains("ACTION"))
             {
                 ParseAction(e.Data);
-            }
-            else
-            {
-                var playerData = JsonConvert.DeserializeObject<PlayerData>(e.Data);
-                if (playerData != null)
-                {
-                    playerData.ConnectionUUID = ID;
-                    EZThread.ExecuteOnMainThread(() => DoActions.UpdateRotation(playerData));
-                }
-            }
+            }          
         }
         catch (System.Exception)
         {

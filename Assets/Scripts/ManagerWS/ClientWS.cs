@@ -74,8 +74,10 @@ public class ClientWS : MonoBehaviour
         }
 
         go.transform.position = new Vector3(p.X, p.Y, p.Z);
-        go.transform.rotation = Quaternion.Euler(p.RotationX * 180 / Mathf.PI, p.RotationY * 180 / Mathf.PI, p.RotationZ * 180 / Mathf.PI);
+        go.transform.rotation = Quaternion.Euler(p.RotationX, p.RotationY , p.RotationZ );
+
         
+
 
     }
 

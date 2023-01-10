@@ -115,36 +115,7 @@ public class DoActions : MonoBehaviour
             var rb = pj.GetComponent<Rigidbody>();
             pj.transform.Translate(side * 5f * Time.deltaTime);
         }
-    }
-
-    public static void UpdateRotation(PlayerData pd)
-    {
-        try
-        {
-            // GameObject go = GameObject.Find(pd.ConnectionUUID);
-            // //go.transform.rotation = Quaternion.Euler(pd.RotationX * 180 / Mathf.PI, pd.RotationY * 180 / Mathf.PI, pd.RotationZ * 180 / Mathf.PI);
-            // go.transform.rotation = Quaternion.Euler(pd.RotationX, pd.RotationY, pd.RotationZ);
-            // //go.transform.rotation = Quaternion.Normalize(ss);
-            // PlayerData p = new PlayerData();
-            // p.ConnectionUUID = pd.ConnectionUUID;
-            // p.X = 0;
-            // p.Y = 0;
-            // p.Z = 0;
-            // if (go.transform.rotation.x == 0)
-            // {
-            //     //Debug.Log("es igual a 0");
-            // }
-            // p.RotationX = go.transform.rotation.x;
-            // p.RotationY = go.transform.rotation.y;
-            // p.RotationZ = go.transform.rotation.z;
-            // var json = JsonConvert.SerializeObject(p);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogException(ex);
-        }
-    }
-
+    }  
 
 
 }
